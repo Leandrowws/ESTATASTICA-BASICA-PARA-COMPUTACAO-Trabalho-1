@@ -98,19 +98,6 @@ def banner(texto):
 def tabela_como_imagem(arquivo, titulo, cabecalho, linhas, larguras, alinhamento,
                        grupos=None, linha_total=False,
                        fonte="Fonte: Elaborada pelo autor.", notas=None, tam_fonte=10):
-    """
-    Imprime a tabela no terminal e a salva como imagem, seguindo as normas de
-    apresentação tabular (IBGE/ABNT):
-      - título acima, numerado ("Tabela N – ...");
-      - traço grosso no topo e na base; traço fino sob o cabeçalho e acima do total;
-      - sem traços verticais nas laterais (tabela aberta);
-      - unidades no cabeçalho ou junto ao valor; decimais com vírgula alinhados;
-      - fonte e notas abaixo da tabela.
-
-    alinhamento : lista com 'l' (esquerda), 'c' (centro) ou 'v' (valor, alinhado pela vírgula)
-    grupos      : lista de (texto, coluna_inicial, coluna_final) para títulos que abrangem colunas
-    linha_total : True se a última linha é de total/marginal (recebe traço fino acima)
-    """
     # --- terminal -------------------------------------------------------------
     print("\n" + titulo.replace(NBSP, " "))
     print(pd.DataFrame(linhas, columns=[c.replace("\n", " ") for c in cabecalho])
